@@ -1,0 +1,83 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    org:
+      springframework:
+        security: info
+      arun: info
+    root: info
+
+spring:
+  application:
+    name: genesis
+    version: 1.0.0
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    kubernetes:
+      enabled: false
+      config:
+        enabled: false
+        enable-api: false
+      secrets:
+        enable-api: false
+        enabled: false
+    discovery:
+      enabled: false
+    features:
+      enabled: false
+  datasource:
+    url: jdbc:h2:file:./data/dummy;AUTO_SERVER=TRUE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database: h2
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate.format_sql: true
+
+springdoc:
+  api-docs:
+    enabled: true
+  version: v0.0.4
+
+rest:
+  security:
+    enabled: true
+    api-matcher: /genesis/**
+    cors:
+      allowed-origins: "*"
+      allowed-headers: "*"
+      allowed-methods: GET,POST,PUT,PATCH,DELETE,OPTIONS
+      max-age: 3600
+    issuer-uri: https://paisley.digital:8443/auth/realms/paisley
+
+security:
+  oauth2:
+    resource:
+      id: paisley-client
+      token-info-uri: ${rest.security.issuer-uri}/protocol/openid-connect/token/introspect
+      user-info-uri: ${rest.security.issuer-uri}/protocol/openid-connect/userinfo
+      jwt:
+        key-value: "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAluRb97upSZI3KHOikAmm+nV+coJM4418ESGMX4yb3FNiBwDSRLCnxN+D8FUtAArxgpRx8hP8wFYQXN3+tDLWE6rQPWG2D8eRcdLtYI6oMKmEpamHVvdRgwJt2B/E++zmcdv8ZcCH1RY2QPkDByNOhX6VC3jq4UEt7zzXRZx2SsoxeP7ilVMv8AbG/GZlYoaryjuWnK76IQXKXeSRUmQIfEdsuLoHLz8bWacmDLBXIQtN7JYzXBEiFuFrGa9Ck3DVwdPQUHLjCpxkaPHGHTHY2jyh200ISPOkF1RADb3Z4yfQpYO3qo8k/SuxY6CK37sXoeMZsb/nZiwwrSBqcvsbKQIDAQAB\n-----END PUBLIC KEY-----"
+
+---
+spring:
+  profiles:
+    active: local
+  sleuth:
+    enabled: true
+  zipkin:
+    enabled: false
+genesis-config:
+  message:  a message that can be changed live
+  clientUrl: http://localhost:8089/

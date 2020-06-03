@@ -1,0 +1,39 @@
+spring:
+  profiles:
+    active: local
+  cloud:
+    kubernetes:
+      enabled: false
+      config:
+        enabled: false
+        enable-api: false
+      secrets:
+        enable-api: false
+        enabled: false
+    discovery:
+      enabled: false
+    features:
+      enabled: false
+---
+spring:
+  profiles: development, staging, production
+  cloud:
+    kubernetes:
+      enabled: true
+      config:
+        enabled: true
+        enable-api: true
+        namespace: default
+      secrets:
+        enable-api: true
+        enabled: true
+      reload:
+        period: 1000ms
+        enabled: true
+        strategy: restart_context
+      discovery:
+        enabled: true
+    discovery:
+      enabled: false
+    features:
+      enabled: true

@@ -1,0 +1,18 @@
+node ('gcloud-kube-pusher'){
+	try{
+		// first of all, notify the team
+       slackSend (color: "${env.SLACK_COLOR_INFO}",
+                  channel: "${params.SLACK_CHANNEL_1}",
+                  message: "*STARTED:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}")
+		env.HOSTNAME = 'http://$host'
+		checkout scm
+    	stage ('Deploy Production') {
+			sh "kubectl apply -f ./ci/deployment/production/gcloud/Deployment.yml"
+			sh "kubectl set image deployment/$service_name $service_name=$gcr_repository:$gcr_version"
+		}
+	} catch (e) {
+        throw e
+    } finally {
+   		deleteDir()
+    }
+}

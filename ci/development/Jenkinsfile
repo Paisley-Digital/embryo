@@ -1,0 +1,51 @@
+node {
+	try{
+		// first of all, notify the team
+       //slackSend (color: "${env.SLACK_COLOR_INFO}",
+       //           channel: "${params.SLACK_CHANNEL_1}",
+       //           message: "*STARTED:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}")
+		env.HOSTNAME = 'http://$host'
+		checkout scm
+		env.JAVA_HOME="${tool 'jdk8'}"
+		stage('Tests Coverage') {withSonarQubeEnv('sonar'){
+			withMaven(maven:'mvn') {
+	    		sh 'mvn clean jacoco:prepare-agent install jacoco:report -Dspring.profiles.active=test'
+	    		}
+    		}
+	 	}
+	 	stage('Code Analysis') {
+	 		withSonarQubeEnv('sonar'){
+	 			withMaven(maven:'mvn') {
+	 				sh 'mvn package sonar:sonar -Dsonar.host.url=http://sonar.paisley.digital -Dsonar.login=cbb707d0286e0a2d319604d5f1373d6602949d8b -DskipTests'
+ 				}
+	  		}
+	 	 }
+
+	 	 stage("Quality Gate"){
+	 	 	timeout(time: 2, unit: 'MINUTES') {
+	 	 		def qg = waitForQualityGate()
+	 	 		if (qg.status != 'OK') {
+	 	 			error "Pipeline aborted due to quality gate failure: ${qg.status}"
+ 	 			}
+ 			}
+ 		}
+ 		stage('Build') {
+			withEnv(["JAVA_HOME=${ tool 'jdk8' }", "PATH+MAVEN=${tool 'mvn'}/bin:${env.JAVA_HOME}/bin"]) {
+            	sh "mvn clean install dockerfile:build -DskipTests"
+        	}
+    	}
+ 		stage('Push Image'){
+    		sh "docker tag paisley/$service_name $gcr_repository:$JOB_NAME.$BUILD_NUMBER"
+            sh "docker tag paisley/$service_name $gcr_repository:latest"
+            sh "docker push $gcr_repository"
+    	}
+    	stage ('Deploy Development') {
+			sh "kubectl apply -f ./ci/development/Deployment.yml"
+			sh "kubectl set image deployment/$service_name $service_name=$gcr_repository:$JOB_NAME.$BUILD_NUMBER"
+		}
+	} catch (e) {
+        throw e
+    } finally {
+   		deleteDir()
+    }
+}
