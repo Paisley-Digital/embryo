@@ -47,13 +47,8 @@ public class ApiController implements DummyApi {
 	@Override
 	@PreAuthorize("hasRole('CUSTOMER')")
 	public ResponseEntity<?> getDummyById(String auth, Long id) {
-		String response = null;
-		//if you are trying to retrieve data from API
-		//String clientResponse = dummyService.getDummyByIdFromClient(id);
-
-		//if you are trying to retrieve data from database
+		String response;
 		response = dummyService.getDummyById(id);
-
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 }
