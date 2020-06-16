@@ -1,8 +1,8 @@
-package digital.paisley.genesis.integration;
+package digital.paisley.embryo.integration;
 
-import digital.paisley.genesis.Application;
-import digital.paisley.genesis.TestSupport;
-import digital.paisley.genesis.services.DummyService;
+import digital.paisley.embryo.Application;
+import digital.paisley.embryo.TestSupport;
+import digital.paisley.embryo.services.DummyService;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
@@ -54,7 +54,7 @@ public class ApiIntegrationTest extends TestSupport {
 
         when(dummyService.getDummyById(any())).thenReturn(getDummy(0L).getDummy());
 
-        mockMvc.perform(get("/genesis/dummies/0")
+        mockMvc.perform(get("/embryo/dummies/0")
                 .contentType(MediaType.APPLICATION_JSON)
                 .header("Authorization",  accessToken)
                 .accept(MediaType.APPLICATION_JSON))
@@ -66,7 +66,7 @@ public class ApiIntegrationTest extends TestSupport {
 
         when(dummyService.getDummyById(any())).thenReturn(getDummy(0L).getDummy());
 
-        mockMvc.perform(get("/genesis/dummies/0")
+        mockMvc.perform(get("/embryo/dummies/0")
                 .contentType(MediaType.APPLICATION_JSON)
                 .header("Authorization",    "Bearer accessToken"))
                 .andExpect(status().isUnauthorized());

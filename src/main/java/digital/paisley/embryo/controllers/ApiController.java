@@ -1,4 +1,4 @@
-package digital.paisley.genesis.controllers;
+package digital.paisley.embryo.controllers;
 
 import java.util.Optional;
 
@@ -12,8 +12,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import digital.paisley.genesis.apis.DummyApi;
-import digital.paisley.genesis.services.DummyService;
+import digital.paisley.embryo.apis.DummyApi;
+import digital.paisley.embryo.services.DummyService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.RestController;
 

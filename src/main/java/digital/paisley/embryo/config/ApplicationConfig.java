@@ -1,4 +1,4 @@
-package digital.paisley.genesis.config;
+package digital.paisley.embryo.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

@@ -11,7 +11,7 @@ logging:
 
 spring:
   application:
-    name: genesis
+    name: embryo
     version: 1.0.0
   main:
     allow-bean-definition-overriding: true
@@ -53,7 +53,7 @@ springdoc:
 rest:
   security:
     enabled: true
-    api-matcher: /genesis/**
+    api-matcher: /embryo/**
     cors:
       allowed-origins: "*"
       allowed-headers: "*"
@@ -78,6 +78,6 @@ spring:
     enabled: true
   zipkin:
     enabled: false
-genesis-config:
+embryo-config:
   message:  a message that can be changed live
   clientUrl: http://localhost:8089/

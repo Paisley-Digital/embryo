@@ -1,11 +1,11 @@
-package digital.paisley.genesis.apis;
+package digital.paisley.embryo.apis;
 
 import java.io.IOException;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
-import digital.paisley.genesis.entities.Dummy;
+import digital.paisley.embryo.entities.Dummy;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -43,7 +43,7 @@ public interface DummyApi {
             @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = Dummy.class))),
             @ApiResponse(responseCode = "400", description = "Invalid ID supplied"),
             @ApiResponse(responseCode = "404", description = "Dummy not found")})
-    @GetMapping(value = "/genesis/dummies/{id}", produces = {"application/json"})
+    @GetMapping(value = "/embryo/dummies/{id}", produces = {"application/json"})
     default ResponseEntity<?> getDummyById(@Parameter(hidden = true) @RequestHeader(value = "Authorization") String auth,
                                            @Parameter(description = "ID of dummy to return", required = true) @PathVariable("id") Long id) {
         if (getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {

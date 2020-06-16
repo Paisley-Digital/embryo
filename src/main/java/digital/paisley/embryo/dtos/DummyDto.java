@@ -1,4 +1,4 @@
-package digital.paisley.genesis.dtos;
+package digital.paisley.embryo.dtos;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

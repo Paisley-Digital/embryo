@@ -1,4 +1,4 @@
-package digital.paisley.genesis.config;
+package digital.paisley.embryo.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HeaderElement;

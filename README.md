@@ -1,4 +1,4 @@
-**Welcome to our genesis microservice, use it as a quickstarter for new ms**
+**Welcome to our embryo microservice, use it as a quickstarter for new ms**
 
 ---
 
@@ -12,7 +12,7 @@ You’ll start by editing your microservice README.
 
 Copy & Paste the content of this repo in your new project
 
-1. Search for **'genesis'** and replace it with the **name** of the microservice
+1. Search for **'embryo'** and replace it with the **name** of the microservice
 2. Maybe you'll need to change some files like 'DummyApi' to your microservice name.
 3. Replace dummy content with your content
 4. Ask in slack for adding the needed configuration in kubernetes  

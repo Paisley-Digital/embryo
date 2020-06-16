@@ -1,4 +1,4 @@
-package digital.paisley.genesis;
+package digital.paisley.embryo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -5,12 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>digital.paisley</groupId>
-	<artifactId>genesis</artifactId>
+	<artifactId>embryo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>genesis</name>
-	<description>This data as a service MS is the interface for genesis.</description>
+	<name>embryo</name>
+	<description>This data as a service MS is the interface for embryo.</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -27,8 +27,8 @@
 		<m2e.apt.activation>jdt_apt</m2e.apt.activation>
 		<mapstruct.version>1.1.0.Final</mapstruct.version>
 		<docker.image.prefix>paisley</docker.image.prefix>
-		<sonar.projectKey>genesis</sonar.projectKey>
-		<sonar.projectName>genesis</sonar.projectName>
+		<sonar.projectKey>embryo</sonar.projectKey>
+		<sonar.projectName>embryo</sonar.projectName>
 		<sonar.projectVersion>1.0</sonar.projectVersion>
 		<sonar.sources>src/main/</sonar.sources>
 		<sonar.tests>src/test/</sonar.tests>
@@ -42,16 +42,16 @@
 			src/main/java/digital/paisley/commons/*,
 			src/main/java/digital/paisley/commons/error/*,
 			src/main/java/digital/paisley/commons/lang/*,
-			src/main/java/digital/paisley/genesis/*,
-			src/main/java/digital/paisley/genesis/entities/*,
-			src/main/java/digital/paisley/genesis/dtos/*,
-			src/main/java/digital/paisley/genesis/controllers/*,
-			src/main/java/digital/paisley/genesis/config/*,
-			src/main/java/digital/paisley/genesis/apis/*,
-			src/main/java/digital/paisley/genesis/utils/*,
-			src/main/java/digital/paisley/genesis/clients/*,
-			src/main/java/digital/paisley/genesis/repositories/*,
-			src/main/java/digital/paisley/genesis/exceptions/*</sonar.exclusions>
+			src/main/java/digital/paisley/embryo/*,
+			src/main/java/digital/paisley/embryo/entities/*,
+			src/main/java/digital/paisley/embryo/dtos/*,
+			src/main/java/digital/paisley/embryo/controllers/*,
+			src/main/java/digital/paisley/embryo/config/*,
+			src/main/java/digital/paisley/embryo/apis/*,
+			src/main/java/digital/paisley/embryo/utils/*,
+			src/main/java/digital/paisley/embryo/clients/*,
+			src/main/java/digital/paisley/embryo/repositories/*,
+			src/main/java/digital/paisley/embryo/exceptions/*</sonar.exclusions>
 	</properties>
 
 	<dependencies>
@@ -237,7 +237,7 @@
 	</dependencyManagement>
 
 	<build>
-		<finalName>genesis</finalName>
+		<finalName>embryo</finalName>
 		<plugins>
 			<!-- Docker Maven Plugin -->
 			<plugin>
@@ -299,10 +299,10 @@
 						</goals>
 						<configuration>
 							<excludes>
-								<exclude>**/digital/paisley/genesis/commons/**</exclude>
-								<exclude>**/digital/paisley/genesis/config/**</exclude>
-								<exclude>**/digital/paisley/genesis/Application*</exclude>
-								<exclude>**/digital/paisley/genesis/apis/**</exclude>
+								<exclude>**/digital/paisley/embryo/commons/**</exclude>
+								<exclude>**/digital/paisley/embryo/config/**</exclude>
+								<exclude>**/digital/paisley/embryo/Application*</exclude>
+								<exclude>**/digital/paisley/embryo/apis/**</exclude>
 							</excludes>
 							<dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
 							<outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>

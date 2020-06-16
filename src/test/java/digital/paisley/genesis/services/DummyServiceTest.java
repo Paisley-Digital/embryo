@@ -1,8 +1,8 @@
-package digital.paisley.genesis.services;
+package digital.paisley.embryo.services;
 
-import digital.paisley.genesis.clients.DummyClient;
-import digital.paisley.genesis.entities.Dummy;
-import digital.paisley.genesis.repositories.DummyRepository;
+import digital.paisley.embryo.clients.DummyClient;
+import digital.paisley.embryo.entities.Dummy;
+import digital.paisley.embryo.repositories.DummyRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

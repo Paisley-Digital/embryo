@@ -1,4 +1,4 @@
-package digital.paisley.genesis.config;
+package digital.paisley.embryo.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;

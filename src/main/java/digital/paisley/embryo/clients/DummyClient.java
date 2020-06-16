@@ -1,6 +1,6 @@
-package digital.paisley.genesis.clients;
+package digital.paisley.embryo.clients;
 
-import digital.paisley.genesis.config.ConfigMaps;
+import digital.paisley.embryo.config.ConfigMaps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

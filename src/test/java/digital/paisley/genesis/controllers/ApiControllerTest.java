@@ -1,7 +1,7 @@
-package digital.paisley.genesis.controllers;
+package digital.paisley.embryo.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import digital.paisley.genesis.services.DummyService;
+import digital.paisley.embryo.services.DummyService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

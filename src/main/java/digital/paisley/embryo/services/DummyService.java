@@ -1,7 +1,7 @@
-package digital.paisley.genesis.services;
+package digital.paisley.embryo.services;
 
-import digital.paisley.genesis.clients.DummyClient;
-import digital.paisley.genesis.repositories.DummyRepository;
+import digital.paisley.embryo.clients.DummyClient;
+import digital.paisley.embryo.repositories.DummyRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

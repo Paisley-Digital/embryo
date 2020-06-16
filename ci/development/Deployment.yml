@@ -1,13 +1,13 @@
 apiVersion: apps/v1beta1 # for versions before 1.8.0 use apps/v1beta1
 kind: Deployment
 metadata:
-  name: genesis
+  name: embryo
   labels:
-      run: genesis
+      run: embryo
 spec:
   selector:
     matchLabels:
-      run: genesis
+      run: embryo
   strategy:
       rollingUpdate:
         maxSurge: 25%
@@ -17,12 +17,12 @@ spec:
   template: # create pods using pod definition in this template
     metadata:
       labels:
-        run: genesis
+        run: embryo
     spec:
       containers:
-      - image: eu.gcr.io/paisley-269417/genesis
+      - image: eu.gcr.io/paisley-269417/embryo
         imagePullPolicy: Always
-        name: genesis
+        name: embryo
         ports:
         - containerPort: 8080
           protocol: TCP

@@ -1,4 +1,4 @@
-package digital.paisley.genesis.config;
+package digital.paisley.embryo.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.models.Components;

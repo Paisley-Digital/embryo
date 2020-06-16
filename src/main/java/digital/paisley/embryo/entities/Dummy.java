@@ -1,4 +1,4 @@
-package digital.paisley.genesis.entities;
+package digital.paisley.embryo.entities;
 
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package digital.paisley.genesis.config;
+package digital.paisley.embryo.config;
 
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.springframework.context.annotation.Bean;

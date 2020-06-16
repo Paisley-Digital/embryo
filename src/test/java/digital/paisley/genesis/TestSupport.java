@@ -1,6 +1,6 @@
-package digital.paisley.genesis;
+package digital.paisley.embryo;
 
-import digital.paisley.genesis.entities.Dummy;
+import digital.paisley.embryo.entities.Dummy;
 import io.restassured.response.Response;
 import org.json.JSONException;
 import org.json.JSONObject;

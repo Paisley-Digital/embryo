@@ -1,4 +1,4 @@
-package digital.paisley.genesis.dtos;
+package digital.paisley.embryo.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

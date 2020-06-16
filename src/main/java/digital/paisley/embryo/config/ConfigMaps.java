@@ -1,4 +1,4 @@
-package digital.paisley.genesis.config;
+package digital.paisley.embryo.config;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -9,7 +9,7 @@ import javax.annotation.PostConstruct;
 
 @Configuration
 @Data
-@ConfigurationProperties(prefix = "genesis-config")
+@ConfigurationProperties(prefix = "embryo-config")
 @Slf4j
 public class ConfigMaps {
 

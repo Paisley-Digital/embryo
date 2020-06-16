@@ -1,6 +1,6 @@
-package digital.paisley.genesis.repositories;
+package digital.paisley.embryo.repositories;
 
-import digital.paisley.genesis.entities.Dummy;
+import digital.paisley.embryo.entities.Dummy;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
